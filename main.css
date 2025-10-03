@@ -1,0 +1,259 @@
+/* Main Stylesheet for HYKROX Creative Designers */
+
+/* Tailwind Configuration */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Custom Utility Classes */
+.tracking-tighter2 {
+  letter-spacing: -0.03em;
+}
+
+/* Navigation Logo */
+.nav-logo {
+  height: 2rem;
+  width: auto;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Logo */
+@media (max-width: 640px) {
+  .nav-logo {
+    height: 1.5rem;
+  }
+}
+
+/* Hero Section Styles */
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Custom Properties */
+:root {
+  --primary: #00C49A;
+  --secondary: #D4AF75;
+  --accent: #19e0d9;
+  --background-light: #ffffff;
+  --background-dark: #0A0F14;
+  --base-900: #0c0f0f;
+  --base-800: #0f1414;
+  --text-light: #1f2937;
+  --text-dark: #e5e7eb;
+  --text-secondary-light: #6b7280;
+  --text-secondary-dark: #9ca3af;
+  --copy-100: #e7f5f4;
+  --copy-300: #b9d5d3;
+  --card-light: #f3f4f6;
+  --card-dark: #161D26;
+}
+
+
+/* Base Styles */
+body {
+  font-family: 'Vazirmatn', 'Inter', sans-serif;
+}
+
+/* Glass Effect */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Neon Effect */
+.neon {
+  text-shadow: 0 0 20px rgba(25,224,217,0.35);
+}
+
+/* Custom Shadows */
+.shadow-glow {
+  box-shadow: 0 0 0 2px rgba(25,224,217,0.15), 0 0 60px rgba(25,224,217,0.25);
+}
+
+.shadow-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Background Gradients */
+.bg-radial-fade {
+  background-image: radial-gradient(1200px 600px at 70% 10%, rgba(25,224,217,0.08), rgba(0,0,0,0));
+}
+
+.bg-radial-fade-rtl {
+  background-image: radial-gradient(1200px 600px at 30% 10%, rgba(25,224,217,0.08), rgba(0,0,0,0));
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+.tracking-tighter2 {
+  letter-spacing: -0.03em;
+}
+
+/* RTL Support */
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Hover Effects */
+.hover-glow:hover {
+  box-shadow: 0 0 0 2px rgba(25,224,217,0.15), 0 0 60px rgba(25,224,217,0.25);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Transitions */
+.transition-smooth {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom Components */
+.hero-bg {
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAC91S2o1-EMzJX9SYGVvAFezEHzcnuyNz9hOlTr9wjhmhjJ5oPxDFqIBNT7Q-kOYbLs5TcHAtBx5iPBkjHW8uxoxVWdU8c5hH7JMhNwZEy_mGtqyPPLgmDEb5_u-aoJmqMXWbVWY-RcRONvPRuawNbwGDTkdk7S_6BhnUsXa8nBlGNMTJZ4aQ4WKRsdf4ft8584xDjHpGfygyFrm8WiQkTlpXK4ejLaSF8c2WuD00NHsLKzU1NkXHIR43vT_wgMASfs7dZ1DNk7ZI');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Large Background Letters */
+.bg-letter {
+  font-size: 30rem;
+  font-weight: bold;
+  color: #374151;
+  opacity: 0.1;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* Team Member Cards */
+.team-card {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-overlay {
+  opacity: 1;
+}
+
+/* Service Cards */
+.service-card {
+  background: var(--card-dark);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background: rgba(0, 196, 154, 0.1);
+}
+
+.service-icon {
+  color: var(--primary);
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+/* Project Cards */
+.project-card {
+  background: var(--background-dark);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Stats Section */
+.stats-icon {
+  color: var(--primary);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.stats-number {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: white;
+}
+
+.stats-label {
+  color: var(--text-secondary-dark);
+  letter-spacing: 0.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bg-letter {
+    font-size: 20rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bg-letter {
+    font-size: 15rem;
+  }
+}
