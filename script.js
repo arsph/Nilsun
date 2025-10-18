@@ -169,13 +169,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function ensureVideoAutoplay() {
     if (video.paused) {
       video.play().then(() => {
-        console.log('Hero video autoplay started');
+        // console.log('Hero video autoplay started');
       }).catch(error => {
         console.log('Autoplay failed, trying user interaction:', error);
         // If autoplay fails, try to play on first user interaction
         document.addEventListener('click', function playOnClick() {
           video.play().then(() => {
-            console.log('Hero video started on user interaction');
+            // console.log('Hero video started on user interaction');
             document.removeEventListener('click', playOnClick);
           });
         }, { once: true });
