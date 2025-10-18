@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="fa">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>تماس با ما - نیلسان استودیو</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="tailwind.config.js"></script>
+  <script>
+    tailwind.config = window.tailwindConfig;
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://unpkg.com/flickity@2/dist/flickity.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body class="bg-background-dark text-text-dark">
+  <div class="min-h-screen relative overflow-hidden">
+    <div class="absolute inset-0 bg-background-dark opacity-95 z-10"></div>
+    <div class="absolute inset-0 hero-bg"></div>
+    
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <header class="flex justify-start items-center py-6">
+        <div class="flex items-center space-x-4 space-x-reverse ml-8">
+          <a href="code.html"><img src="img/logo.png" alt="NILSUN STUDIO Logo" class="h-20 w-auto"></a>
+          <div class="text-2xl font-bold text-right">
+            <!-- <span class="text-white">نیلسان</span> -->
+            <!-- <p class="text-xs text-text-secondary-dark tracking-[0.2em]">طراحی‌های منحصر به فرد</p> -->
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8 space-x-reverse mr-6">
+          <a class="text-text-secondary-dark hover:text-white transition" href="code.html">خانه</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="code.html#servicesSection">خدمات ما</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="code.html#projectsSection">طراحی‌ها</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="code.html#aboutSection">درباره ما</a>
+          <a class="text-primary hover:text-white transition" href="contact.html">تماس با ما</a>
+          <a href="/en" class="language-link">
+            <img class="w-10 h-10 p-1 mr-8" src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="UK Flag" />
+          </a>
+        </nav>
+        <div class="flex items-center space-x-4 space-x-reverse">
+          <button class="md:hidden hamburger-btn" id="hamburgerBtn">
+            <span class="material-icons text-white">menu</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+      <!-- Mobile Menu -->
+      <nav class="mobile-menu" id="mobileMenu">
+        <button class="close-btn" id="closeBtn">
+          <span class="material-icons text-white">close</span>
+        </button>
+        <ul class="mobile-nav-list">
+          <li><a href="code.html" class="text-text-secondary-dark">خانه</a></li>
+          <li><a href="code.html#servicesSection" class="text-text-secondary-dark">خدمات ما</a></li>
+          <li><a href="code.html#projectsSection" class="text-text-secondary-dark">طراحی‌ها</a></li>
+          <li><a href="code.html#aboutSection" class="text-text-secondary-dark">درباره ما</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">تماس با ما</a></li>
+          <li><a href="/en" class="mobile-nav-link flex items-center space-x-2 space-x-reverse">
+            <img class="w-6 h-6" src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="UK Flag" />
+            <span>English</span>
+          </a></li>
+        </ul>
+      </nav>
+      
+      <!-- Contact Page Header -->
+      <section class="py-16 text-center">
+        <div class="opacity-0 transition-opacity duration-1000" id="contactHeader">
+          <!-- <p class="text-lg font-semibold text-primary tracking-widest mb-2">تماس با ما</p> -->
+          <h1 class="hero-title text-5xl font-bold text-white leading-tight">
+            <span class="text-secondary">تماس با ما</span>
+          </h1>
+          <div class="w-20 h-1 bg-primary my-6 mx-auto"></div>
+          <p class="text-text-secondary-dark leading-relaxed max-w-2xl mx-auto">
+            آماده‌ایم تا ایده‌های شما را به واقعیت تبدیل کنیم. با ما در تماس باشید و از خدمات حرفه‌ای ما بهره‌مند شوید.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Form and Info Section -->
+      <section class="py-16">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <!-- Contact Form -->
+          <div class="order-last lg:order-first">
+            <div class="bg-card-dark rounded-lg p-8 shadow-card">
+              <h2 class="text-2xl font-bold text-secondary mb-6 text-right">فرم تماس</h2>
+              <form id="contactForm" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-white mb-2 text-right">نام و نام خانوادگی</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      required 
+                      class="contact-input w-full px-4 py-3 bg-background-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors"
+                      placeholder="نام خود را وارد کنید"
+                    >
+                    <div class="error-message text-red-400 text-sm mt-1 hidden" id="name-error"></div>
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-white mb-2 text-right">ایمیل</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      required 
+                      class="contact-input w-full px-4 py-3 bg-background-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors"
+                      placeholder="ایمیل خود را وارد کنید"
+                    >
+                    <div class="error-message text-red-400 text-sm mt-1 hidden" id="email-error"></div>
+                  </div>
+                </div>
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-white mb-2 text-right">شماره تماس</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="contact-input w-full px-4 py-3 bg-background-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors"
+                    placeholder="شماره تماس خود را وارد کنید"
+                  >
+                  <div class="error-message text-red-400 text-sm mt-1 hidden" id="phone-error"></div>
+                </div>
+                <div>
+                  <label for="message" class="block text-sm font-medium text-white mb-2 text-right">پیام</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="6" 
+                    required 
+                    class="contact-input w-full px-4 py-3 bg-background-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors resize-none"
+                    placeholder="پیام خود را اینجا بنویسید..."
+                  ></textarea>
+                  <div class="error-message text-red-400 text-sm mt-1 hidden" id="message-error"></div>
+                </div>
+                <button 
+                  type="submit" 
+                  id="submitBtn"
+                  class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span id="submitText">ارسال پیام</span>
+                  <span id="submitLoading" class="hidden">
+                    <span class="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+                    در حال ارسال...
+                  </span>
+                </button>
+              </form>
+              
+              <!-- Success/Error Messages -->
+              <div id="formMessage" class="mt-6 p-4 rounded-lg hidden">
+                <div id="successMessage" class="bg-green-900/20 border border-green-500 text-green-400 p-4 rounded-lg hidden">
+                  <div class="flex items-center">
+                    <span class="material-icons mr-2">check_circle</span>
+                    پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.
+                  </div>
+                </div>
+                <div id="errorMessage" class="bg-red-900/20 border border-red-500 text-red-400 p-4 rounded-lg hidden">
+                  <div class="flex items-center">
+                    <span class="material-icons mr-2">error</span>
+                    <span id="errorText">خطایی در ارسال پیام رخ داد. لطفاً دوباره تلاش کنید.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="space-y-8">
+            <!-- Contact Info Card -->
+            <div class="bg-card-dark rounded-lg p-8 shadow-card">
+              <h2 class="text-2xl font-bold text-secondary mb-6 text-right">اطلاعات تماس</h2>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="flex-shrink-0">
+                    <span class="material-icons text-primary text-2xl">phone</span>
+                  </div>
+                  <div class="text-right">
+                    <h3 class="text-white font-semibold mb-1">تلفن</h3>
+                    <a href="tel:+989135659211" class="text-text-secondary-dark hover:text-primary transition-colors">09135659211</a>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="flex-shrink-0">
+                    <span class="material-icons text-primary text-2xl">email</span>
+                  </div>
+                  <div class="text-right">
+                    <h3 class="text-white font-semibold mb-1">ایمیل</h3>
+                    <a href="mailto:info@nilsunstudio.ir" class="text-text-secondary-dark hover:text-primary transition-colors">info@nilsunstudio.ir</a>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="flex-shrink-0">
+                    <span class="material-icons text-primary text-2xl">location_on</span>
+                  </div>
+                  <div class="text-right">
+                    <h3 class="text-white font-semibold mb-1">آدرس</h3>
+                    <p class="text-text-secondary-dark">تهران، خیابان ولیعصر، پلاک 123</p>
+                    <p class="text-text-secondary-dark">ساختمان نیلسان، طبقه 4</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="flex-shrink-0">
+                    <span class="material-icons text-primary text-2xl">chat</span>
+                  </div>
+                  <div class="text-right">
+                    <h3 class="text-white font-semibold mb-1">پیام‌رسان‌ها</h3>
+                    <div class="flex space-x-4 space-x-reverse mt-2">
+                      <a href="https://t.me/nilsunstudio" target="_blank" class="flex items-center space-x-2 space-x-reverse text-text-secondary-dark hover:text-primary transition-colors">
+                        <i class="fab fa-telegram text-xl"></i>
+                        <span>تلگرام</span>
+                      </a>
+                      <a href="https://wa.me/989135659211" target="_blank" class="flex items-center space-x-2 space-x-reverse text-text-secondary-dark hover:text-primary transition-colors">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>واتساپ</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map -->
+            <div class="bg-card-dark rounded-lg p-8 shadow-card">
+              <h2 class="text-2xl font-bold text-secondary mb-6 text-right">موقعیت ما</h2>
+              <div class="relative h-80 rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13577.5!2d51.6776!3d32.6546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fbc35c5b5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sIsfahan%2C%20Iran!5e0!3m2!1sen!2s!4v1234567890"
+                  width="100%" 
+                  height="100%" 
+                  style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="rounded-lg"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <button
+    id="backToTopBtn"
+    class="hidden fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-primary text-white text-xl shadow-lg hover:bg-blue-700 transition-all duration-300"
+  >
+    ↑
+  </button>
+
+  <footer class="bg-card-dark py-4 text-center">
+    <p class="text-text-secondary-dark text-sm">طراحی توسط <a href="https://arsalanparham.com" class="text-secondary hover:text-secondary/80" target="_blank">Arsalan</a></p>
+  </footer>
+
+  <script>
+    // Mobile Menu Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      const closeBtn = document.getElementById('closeBtn');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        menuOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        menuOverlay.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+
+      hamburgerBtn.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      menuOverlay.addEventListener('click', closeMenu);
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
+      // Animate contact header
+      setTimeout(() => {
+        document.getElementById('contactHeader').style.opacity = '1';
+      }, 500);
+
+      // Back to top button
+      const btn = document.getElementById("backToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) btn.classList.remove("hidden");
+        else btn.classList.add("hidden");
+      });
+
+      function smoothScrollToTop(duration = 2000) {
+        const start = window.pageYOffset;
+        const startTime = performance.now();
+
+        function scrollStep(timestamp) {
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          window.scrollTo(0, start * (1 - easeOut));
+          if (progress < 1) {
+            window.requestAnimationFrame(scrollStep);
+          }
+        }
+        window.requestAnimationFrame(scrollStep);
+      }
+
+      btn.addEventListener("click", () => {
+        smoothScrollToTop(2500);
+      });
+    });
+
+    // Contact Form Handling
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = this;
+      const submitBtn = document.getElementById('submitBtn');
+      const submitText = document.getElementById('submitText');
+      const submitLoading = document.getElementById('submitLoading');
+      const formMessage = document.getElementById('formMessage');
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+      const errorText = document.getElementById('errorText');
+      
+      // Clear previous messages
+      formMessage.classList.add('hidden');
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      
+      // Clear previous errors
+      document.querySelectorAll('.error-message').forEach(error => {
+        error.classList.add('hidden');
+        error.textContent = '';
+      });
+      
+      // Validate form
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      let isValid = true;
+      
+      // Name validation
+      if (!data.name || data.name.trim().length < 2) {
+        document.getElementById('name-error').textContent = 'نام باید حداقل 2 کاراکتر باشد';
+        document.getElementById('name-error').classList.remove('hidden');
+        isValid = false;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!data.email || !emailRegex.test(data.email)) {
+        document.getElementById('email-error').textContent = 'لطفاً یک ایمیل معتبر وارد کنید';
+        document.getElementById('email-error').classList.remove('hidden');
+        isValid = false;
+      }
+      
+      
+      // Message validation
+      if (!data.message || data.message.trim().length < 10) {
+        document.getElementById('message-error').textContent = 'پیام باید حداقل 10 کاراکتر باشد';
+        document.getElementById('message-error').classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!isValid) {
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitText.classList.add('hidden');
+      submitLoading.classList.remove('hidden');
+      
+      try {
+        const response = await fetch('contact-handler.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          formMessage.classList.remove('hidden');
+          successMessage.classList.remove('hidden');
+          form.reset();
+        } else {
+          formMessage.classList.remove('hidden');
+          errorMessage.classList.remove('hidden');
+          errorText.textContent = result.message || 'خطایی در ارسال پیام رخ داد';
+        }
+      } catch (error) {
+        formMessage.classList.remove('hidden');
+        errorMessage.classList.remove('hidden');
+        errorText.textContent = 'خطا در اتصال به سرور. لطفاً دوباره تلاش کنید.';
+      } finally {
+        // Hide loading state
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

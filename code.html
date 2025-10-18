@@ -4,48 +4,76 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>نیلسان استودیو</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-  <link rel="stylesheet" href="main.css"/>
   <script src="tailwind.config.js"></script>
   <script>
     tailwind.config = window.tailwindConfig;
   </script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://unpkg.com/flickity@2/dist/flickity.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="main.css"/>
 </head>
 <body class="bg-background-dark text-text-dark">
   <div class="min-h-screen relative overflow-hidden">
     <div class="absolute inset-0 bg-background-dark opacity-95 z-10"></div>
     <div class="absolute inset-0 hero-bg"></div>
-    <div class="bg-letter">H</div>
+    <!-- <div class="bg-letter">H</div> -->
     
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-      <header class="flex justify-between items-center py-6">
-        <div class="flex items-center space-x-4 space-x-reverse">
-          <img src="logo.png" alt="NILSUN STUDIO Logo" class="h-16 w-auto">
+      <header class="flex justify-start items-center py-6">
+        <div class="flex items-center space-x-4 space-x-reverse ml-8">
+          <a href="#"><img src="img/logo.png" alt="NILSUN STUDIO Logo" class="h-20 w-auto"></a>
           <div class="text-2xl font-bold text-right">
-            <span class="text-white">نیلسان استودیو</span>
+            <!-- <span class="text-white">نیلسان</span> -->
             <!-- <p class="text-xs text-text-secondary-dark tracking-[0.2em]">طراحی‌های منحصر به فرد</p> -->
           </div>
         </div>
-        <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
-          <a class="text-primary hover:text-white transition" href="#">خانه</a>
-          <a class="text-text-secondary-dark hover:text-white transition" href="#">طراحی‌ها</a>
-          <a class="text-text-secondary-dark hover:text-white transition" href="#">خدمات</a>
-          <a class="text-text-secondary-dark hover:text-white transition" href="#">درباره ما</a>
-          <a class="text-text-secondary-dark hover:text-white transition" href="#">تماس با ما</a>
+        <nav class="hidden md:flex items-center space-x-8 space-x-reverse mr-6">
+          <a class="text-primary hover:text-white transition" href="/">خانه</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="#servicesSection">خدمات ما</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="#projectsSection">طراحی‌ها</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="#aboutSection">درباره ما</a>
+          <a class="text-text-secondary-dark hover:text-white transition" href="contact.html">تماس با ما</a>
+           <a href="/en" class="language-link">
+             <img class="w-10 h-10 p-1 mr-8" src="https://hatscripts.github.io/circle-flags/flags/gb.svg" alt="UK Flag" />
+           </a>
         </nav>
+
         <div class="flex items-center space-x-4 space-x-reverse">
-          <span class="material-icons text-white">search</span>
-          <button class="md:hidden">
+          <!-- <span class="material-icons text-white">search</span> -->
+          <button class="md:hidden hamburger-btn" id="hamburgerBtn">
             <span class="material-icons text-white">menu</span>
           </button>
         </div>
       </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+      <!-- Mobile Menu -->
+      <nav class="mobile-menu" id="mobileMenu">
+        <button class="close-btn" id="closeBtn">
+          <span class="material-icons text-white">close</span>
+        </button>
+        <ul class="mobile-nav-list">
+          <li><a href="/" class="mobile-nav-link">خانه</a></li>
+          <li><a href="#servicesSection" class="text-text-secondary-dark">خدمات ما</a></li>
+          <li><a href="#projectsSection" class="text-text-secondary-dark">طراحی‌ها</a></li>
+          <li><a href="#aboutSection" class="text-text-secondary-dark">درباره ما</a></li>
+          <li><a href="contact.html" class="text-text-secondary-dark">تماس با ما</a></li>
+        </ul>
+      </nav>
       
       <section class="py-24 grid md:grid-cols-2 gap-12 items-center">
         <div class="order-last md:order-first">
-          <p class="text-sm font-semibold text-primary tracking-widest mb-2 text-right">طراح خلاق</p>
+          <p class="text-lg font-semibold text-primary tracking-widest mb-2 text-right">چشم انداز شما، ماموریت هنری ما</p>
           <h1 class="hero-title text-5xl font-bold text-white leading-tight text-right">
-            ما طراحان <span class="text-secondary">خلاق</span><br/>هستیم
+            چرا <span class="text-secondary">نیلسان</span> ؟
           </h1>
           <div class="w-20 h-1 bg-primary my-6 ml-auto"></div>
           <p class="text-text-secondary-dark leading-relaxed text-right">
@@ -56,52 +84,49 @@
         </div>
         <div class="flex justify-center">
           <div class="relative">
-            <div class="absolute -inset-2 bg-primary/20 blur-2xl rounded-lg"></div>
-            <img 
-              alt="A portrait of a woman with a teal light cast on her face." 
-              class="relative rounded-lg shadow-2xl w-80 h-96 object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3VZsig8O8pgDLYE98hFsi-GWRgt7CinmdASDX80K_mXp9iBgVlmfEaJIYJ_zQsnqqBcsolAKaJODkrk76RvMQmE0jhN4wr4EoCNL-RVTROgIQss1QCtsOkSrWn_Vk9aE9aiKzhf1jqY6dhXDTAjpd7hQpOrrSVEq98ms_SArVOYyE0nm_4BdvgIGmNMwSEaImQpNDpGGJWxzAxPBOL2n3jC0MnHlraiMajqxGV84RlnHa5SPxhy3eIb6_cFL_mkczg5sQJDLaFqM"
-            />
+            <div class="absolute -inset-2 blur-xl rounded-lg"></div>
+            <video id="heroVideo" class="relative rounded-lg shadow-xl w-full h-full object-cover" playsinline preload="none" poster="img/hero-poster.jpg">
+              <source data-src="video/main.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </section>
     </div>
   </div>
   
-  <div class="bg-background-dark py-24">
+  <div id="servicesSection" class="bg-background-dark py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="order-last md:order-first">
-          <p class="text-sm font-semibold text-primary tracking-widest mb-2 text-right">خدمات ما</p>
-          <h2 class="section-title text-5xl font-bold text-white text-right">ما چه کاری انجام می‌دهیم؟</h2>
+        <div id="servicesText" class="order-last md:order-first opacity-0 transition-opacity duration-1000">
+          <!-- <p class="text-sm font-semibold text-primary tracking-widest mb-2 text-right">خدمات ما</p> -->
+          <h2 class="section-title text-5xl font-bold text-white text-right">خدمات ما</h2>
           <div class="w-20 h-1 bg-primary my-6 ml-auto"></div>
           <p class="text-text-secondary-dark mb-8 leading-relaxed text-right">
-            هیچ دو برندی شبیه هم نیستند. تیم خلاق ما با تحلیل نقاط قوت و نیازهای مخاطبان، استراتژی‌های شخصی‌سازی شده خلق می‌کند و برند شما را به تجربه‌ای خاص و ماندگار تبدیل می‌کند.          </p>
-          <a 
-            class="text-secondary font-semibold border border-secondary px-4 py-2 rounded-sm text-sm hover:bg-secondary hover:text-white transition float-right" 
-            href="#"
-          >
+            هیچ دو برندی شبیه هم نیستند. تیم خلاق ما با تحلیل نقاط قوت و نیازهای مخاطبان، استراتژی‌های شخصی‌سازی شده خلق می‌کند و برند شما را به تجربه‌ای خاص و ماندگار تبدیل می‌کند.
+          </p>
+          <a class="text-secondary font-semibold border border-secondary px-4 py-2 rounded-sm text-sm hover:bg-secondary hover:text-white transition float-right" 
+            href="/services">
             مشاهده همه
           </a>
         </div>
         <div class="grid grid-cols-2 gap-8">
-          <div class="service-card">
-            <span class="material-icons service-icon">design_services</span>
+          <div id="service1" class="service-card opacity-0 transition-opacity duration-1000">
+            <span class="material-icons service-icon">web</span>
             <h3 class="text-xl font-semibold text-white mb-2">طراحی وب‌سایت</h3>
             <p class="text-text-secondary-dark text-sm">حضور آنلاین حرفه‌ای و به یادماندنی با تجربه کاربری بهینه</p>
           </div>
-          <div class="service-card">
-            <span class="material-icons service-icon">apps</span>
+          <div id="service2" class="service-card opacity-0 transition-opacity duration-1000">
+            <span class="material-icons service-icon">movie</span>
             <h3 class="text-xl font-semibold text-white mb-2">تیزر و ویدئو تبلیغاتی</h3>
             <p class="text-text-secondary-dark text-sm">خلق تجربه بصری فراموش‌نشدنی و انتقال پیام برند با خلاقیت بالا</p>
           </div>
-          <div class="service-card">
-            <span class="material-icons service-icon">phonelink_setup</span>
+          <div id="service3" class="service-card opacity-0 transition-opacity duration-1000">
+            <span class="material-icons service-icon">animation</span>
             <h3 class="text-xl font-semibold text-white mb-2">انیمیشن دو بعدی و سه بعدی</h3>
             <p class="text-text-secondary-dark text-sm">طراحی کاراکتر و داستان‌پردازی حرفه‌ای برای برند شما</p>
           </div>
-          <div class="service-card">
-            <span class="material-icons service-icon">photo_filter</span>
+          <div id="service4" class="service-card opacity-0 transition-opacity duration-1000">
+            <span class="material-icons service-icon">palette</span>
             <h3 class="text-xl font-semibold text-white mb-2">طراحی گرافیک و هویت بصری</h3>
             <p class="text-text-secondary-dark text-sm"> لوگو، پالت رنگی، کاتالوگ و عناصر بصری که برند شما را متمایز می‌کند</p>
           </div>
@@ -110,49 +135,131 @@
     </div>
   </div>
   
-  <div class="bg-card-dark py-24">
+  <div id="projectsSection" class="bg-card-dark py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-sm font-semibold text-primary tracking-widest mb-2">نمونه کارها</p>
-        <h2 class="section-title text-4xl md:text-5xl font-bold text-white">پروژه های اخیر ما</h2>
+      <div id="projectsHeader" class="text-center mb-12 opacity-0 transition-opacity duration-1000">
+        <!-- <p class="text-sm font-semibold text-primary tracking-widest mb-2">نمونه کارها</p> -->
+        <h2 class="section-title text-4xl md:text-5xl font-bold text-white">نمونه کارها</h2>
         <div class="w-20 h-1 bg-primary my-6 mx-auto"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="project-card">
-          <div class="relative overflow-hidden">
-            <div class="w-full h-60 bg-gray-700 flex items-center justify-center text-text-secondary-dark">
-              تصویر پروژه
+      <div id="projectsCarouselWrapper" class="main-carousel opacity-0 transition-opacity duration-1000" data-flickity='{ "cellAlign": "right", "contain": true, "prevNextButtons": true, "pageDots": true, "rightToLeft": true }'>
+        <div class="carousel-cell w-full md:w-1/2 lg:w-1/3 px-4">
+          <div class="bg-background-dark rounded-lg overflow-hidden group">
+            <div class="relative overflow-hidden">
+              <video class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300" playsinline preload="none" poster="img/projects/FAKE.jpg">
+                <source data-src="./video/FAKE.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="material-icons play-button cursor-pointer" onclick="openVideoModalLazy('./video/FAKE.mp4', 'FAKE', 'طراحی لوگو و هویت بصری کامل برای برند جدید با رویکرد مدرن و خلاقانه')">play_circle_filled</span>
+              </div>
             </div>
-            <div class="p-4">
-              <h3 class="text-xl font-bold text-white">عنوان پروژه</h3>
+            <div class="p-4 text-right">
+              <h3 class="text-xl font-bold text-white">FAKE</h3>
               <p class="text-sm text-text-secondary-dark mt-2">
-                این یک توضیح کوتاه برای پروژه است. می‌توانید جزئیات بیشتری درباره پروژه در اینجا بنویسید.
+                طراحی لوگو و هویت بصری کامل برای برند جدید با رویکرد مدرن و خلاقانه
               </p>
             </div>
           </div>
         </div>
-        <div class="project-card">
-          <div class="relative overflow-hidden">
-            <div class="w-full h-60 bg-gray-700 flex items-center justify-center text-text-secondary-dark">
-              تصویر پروژه
+        <div class="carousel-cell w-full md:w-1/2 lg:w-1/3 px-4">
+          <div class="bg-background-dark rounded-lg overflow-hidden group">
+            <div class="relative overflow-hidden">
+              <video 
+                class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300" playsinline preload="none" poster="img/projects/NORDFORM.jpg">
+                <source data-src="./video/NORDFORM.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="material-icons play-button cursor-pointer" onclick="openVideoModalLazy('./video/NORDFORM.mp4', 'NORDFORM', 'طراحی و توسعه وب‌سایت شرکتی با رابط کاربری مدرن و تجربه کاربری بهینه')">play_circle_filled</span>
+              </div>
             </div>
-            <div class="p-4">
-              <h3 class="text-xl font-bold text-white">عنوان پروژه</h3>
+            <div class="p-4 text-right">
+              <h3 class="text-xl font-bold text-white">NORDFORM</h3>
               <p class="text-sm text-text-secondary-dark mt-2">
-                این یک توضیح کوتاه برای پروژه است. می‌توانید جزئیات بیشتری درباره پروژه در اینجا بنویسید.
+                طراحی و توسعه وب‌سایت شرکتی با رابط کاربری مدرن و تجربه کاربری بهینه
               </p>
             </div>
           </div>
         </div>
-        <div class="project-card">
-          <div class="relative overflow-hidden">
-            <div class="w-full h-60 bg-gray-700 flex items-center justify-center text-text-secondary-dark">
-              تصویر پروژه
+        <div class="carousel-cell w-full md:w-1/2 lg:w-1/3 px-4">
+          <div class="bg-background-dark rounded-lg overflow-hidden group">
+            <div class="relative overflow-hidden">
+              <video 
+                class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"  
+                playsinline
+                preload="none"
+                poster="./img/projects/BANK SADERAT.jpg"
+              >
+                <source data-src="./video/BANK_SADERAT.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="material-icons play-button cursor-pointer" onclick="openVideoModalLazy('./video/BANK_SADERAT.mp4', 'BANK SADERAT', 'تولید انیمیشن دو بعدی برای کمپین تبلیغاتی با داستان‌پردازی خلاقانه')">play_circle_filled</span>
+              </div>
             </div>
-            <div class="p-4">
-              <h3 class="text-xl font-bold text-white">عنوان پروژه</h3>
+            <div class="p-4 text-right">
+              <h3 class="text-xl font-bold text-white">BANK SADERAT</h3>
               <p class="text-sm text-text-secondary-dark mt-2">
-                این یک توضیح کوتاه برای پروژه است. می‌توانید جزئیات بیشتری درباره پروژه در اینجا بنویسید.
+                تولید انیمیشن دو بعدی برای کمپین تبلیغاتی با داستان‌پردازی خلاقانه
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell w-full md:w-1/2 lg:w-1/3 px-4">
+          <div class="bg-background-dark rounded-lg overflow-hidden group">
+            <div class="relative overflow-hidden">
+              <video 
+                class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300" 
+                playsinline
+                preload="none"
+                poster="./img/projects/REZVANI.jpg"
+              >
+                <source data-src="./video/REZVANI.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="material-icons play-button cursor-pointer" onclick="openVideoModalLazy('./video/REZVANI.mp4', 'REZVANI', 'تولید ویدیو تبلیغاتی حرفه‌ای با کیفیت سینمایی و جلوه‌های بصری پیشرفته')">play_circle_filled</span>
+              </div>
+            </div>
+            <div class="p-4 text-right">
+              <h3 class="text-xl font-bold text-white">REZVANI</h3>
+              <p class="text-sm text-text-secondary-dark mt-2">
+                تولید ویدیو تبلیغاتی حرفه‌ای با کیفیت سینمایی و جلوه‌های بصری پیشرفته
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell w-full md:w-1/2 lg:w-1/3 px-4">
+          <div class="bg-background-dark rounded-lg overflow-hidden group">
+            <div class="relative overflow-hidden">
+              <video 
+                class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300" playsinline preload="none" poster="./img/projects/EKESF.jpg">
+                <source data-src="./video/EKESF.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="material-icons play-button cursor-pointer" onclick="openVideoModalLazy('./video/EKESF.mp4', 'EKESF', 'طراحی کامل هویت بصری برند شامل لوگو، کارت ویزیت و کاتالوگ')">play_circle_filled</span>
+              </div>
+            </div>
+            <div class="p-4 text-right">
+              <h3 class="text-xl font-bold text-white">EKESF</h3>
+              <p class="text-sm text-text-secondary-dark mt-2">
+                طراحی کامل هویت بصری برند شامل لوگو، کارت ویزیت و کاتالوگ
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-cell w-full md:w-1/2 lg:w-1/3 px-4">
+          <div class="bg-background-dark rounded-lg overflow-hidden group">
+            <div class="relative overflow-hidden">
+              <video 
+                class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300" playsinline preload="none" poster="./img/projects/EKESF-2.jpg">
+                <source data-src="./video/EKESF-2.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="material-icons play-button cursor-pointer" onclick="openVideoModalLazy('./video/EKESF-2.mp4', 'EKESF-2', 'طراحی کامل هویت بصری برند شامل لوگو، کارت ویزیت و کاتالوگ')">play_circle_filled</span>
+              </div>
+            </div>
+            <div class="p-4 text-right">
+              <h3 class="text-xl font-bold text-white">EKESF-2</h3>
+              <p class="text-sm text-text-secondary-dark mt-2">
+                طراحی کامل هویت بصری برند شامل لوگو، کارت ویزیت و کاتالوگ
               </p>
             </div>
           </div>
@@ -161,25 +268,26 @@
     </div>
   </div>
   
-  <div class="bg-background-dark py-24 relative overflow-hidden">
-    <div class="bg-letter">R</div>
+  <div id="aboutSection" class="bg-background-dark py-24 relative overflow-hidden">
+    <!-- <div class="bg-letter">R</div> -->
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="flex justify-center">
+        <div id="aboutImage" class="flex justify-center opacity-0 transition-opacity duration-[900ms]">
           <img 
             alt="A person wearing headphones, shown in a blurred, grayscale style." 
             class="rounded-lg shadow-2xl w-full max-w-md object-cover" 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHIxktVrAysoq3FKiyFKwLXEVfZUaX3q48Hf4L0TcnlkOOKYL0YKOgori53VHg0txC2WmMQQUixPlLejApTiqJ4Z7HyD2UaOQbipVX8fgerTJWLPkSfRYCY1s32DvjXOjbcGxIqVddlheKwUvlfbGPAXP2DBbdBWKGFwx4EQ3NYINzOh-r_rPkoy3-CzqJ6QRKvm5VxXBdBUcsdX5PQ5fiBrS-kFQ8H_aoX-J3uumXbcrjqtQU6tjfbhHKXFAK_ql8s8pET2mj-sw"
           />
         </div>
-        <div class="text-right">
-          <p class="text-sm font-semibold text-primary tracking-widest mb-2">درباره ما</p>
-          <h2 class="section-title text-5xl font-bold text-white">ما کی <span class="text-secondary">هستیم؟</span></h2>
+        <div id="aboutText" class="text-right opacity-0 transition-opacity duration-[900ms]">
+          <!-- <p class="text-sm font-semibold text-primary tracking-widest mb-2">درباره ما</p> -->
+          <h2 class="section-title text-5xl font-bold text-white">درباره ما</h2>
           <div class="w-20 h-1 bg-primary my-6 mr-auto md:mr-0 ml-auto"></div>
           <p class="text-text-secondary-dark mb-8 leading-relaxed">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            من نیلوفر صنایع هستم، موسس نیلسان. از همون سال‌های نوجوانی عاشق هنر و تصویرسازی بودم و همین عشق، مسیر زندگی‌مو به سمت دنیای تبلیغات و خلاقیت کشوند.
+            نیلسان برای من فقط یه استودیو نیست؛ رؤیاییه که با تکیه بر عشق به خلق تجربه‌های بصری موندگار ساخته شده. اینجا جاییه که باور دارم هر برند می‌تونه داستان خودش رو به زیباترین شکل ممکن روایت کنه و در دل مخاطب جا بگیره.
           </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <!-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
               <h3 class="text-xl font-semibold text-white mb-2">کد تمیز</h3>
               <p class="text-text-secondary-dark text-sm">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است.</p>
@@ -188,21 +296,21 @@
               <h3 class="text-xl font-semibold text-white mb-2">طراحی مدرن</h3>
               <p class="text-text-secondary-dark text-sm">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ است.</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </div>
   
-  <div class="bg-card-dark py-24">
+  <div id="teamSection" class="bg-card-dark py-24">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-sm font-semibold text-primary tracking-widest mb-2">تیم ما</p>
-        <h2 class="section-title text-4xl md:text-5xl font-bold text-white">با اعضای تیم ما آشنا شوید</h2>
+      <div id="teamHeader" class="text-center mb-12 opacity-0 transition-opacity duration-[900ms]">
+        <!-- <p class="text-sm font-semibold text-primary tracking-widest mb-2">تیم ما</p> -->
+        <h2 class="section-title text-4xl md:text-5xl font-bold text-white">تیم ما</h2>
         <div class="w-20 h-1 bg-primary my-6 mx-auto"></div>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-12">
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -219,7 +327,7 @@
           </div>
           <h3 class="text-white font-semibold">مدیر دیجیتال مارکتینگ</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -236,7 +344,7 @@
           </div>
           <h3 class="text-white font-semibold">طراح وب و اپلیکیشن</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -253,7 +361,7 @@
           </div>
           <h3 class="text-white font-semibold">گرافیست</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -270,7 +378,7 @@
           </div>
           <h3 class="text-white font-semibold">تصویربردار</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -287,7 +395,7 @@
           </div>
           <h3 class="text-white font-semibold">عکاس</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -304,7 +412,7 @@
           </div>
           <h3 class="text-white font-semibold">مدل‌ساز سه‌بعدی</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -321,7 +429,7 @@
           </div>
           <h3 class="text-white font-semibold">انیماتور</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -338,7 +446,7 @@
           </div>
           <h3 class="text-white font-semibold">تدوینگر</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
@@ -355,12 +463,12 @@
           </div>
           <h3 class="text-white font-semibold">ایده‌پرداز</h3>
         </div>
-        <div class="team-card text-center group">
+        <div class="team-card text-center group opacity-0 transition-opacity duration-[900ms]">
           <div class="relative w-24 h-24 mx-auto mb-4">
             <img 
               alt="Team member photo" 
               class="w-full h-full rounded-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnEGad4uKcyP6MzMvQxo935poNscQ-w2ix8rCTi7aNGwAhB-KqOGyDXiSRStFIQ9kaO7X8Xm8UMgYy5g-hGST97chgFdU3L6syarLXkaeCCs8uBg4kyF7FeLX0JB5tYknG_vBWKcOtYgViFABL2UIEXdhThO3KS2V9DnhqlP4OBPur2kIM4L-WVarfW9REcjslOUys1Bcf8euTYay4m3QHfprrL_yLFjI1-xl1vizV4G2TGzkHT9L9QUCoo3MOhNMGaiRtJi3KMSY"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnEGad4uKcyP6MzMvQxo935poNscQ-w2ix8rCTi7aNGwAhB-KqOGyDXiSRStFIQ9kaO7X8Xm8UMgYy5g-hGST97chgFdU3L6syarLXkaeCCs8uBg4kyF7FeLX0JB5tYknG_vBWKcOtYgViFABL2UIEXdhThO3KS2V9DnhqlL4OBPur2kIM4L-WVarfW9REcjslOUys1Bcf8euTYay4m3QHfprrL_yLFjI1-xl1vizV4G2TGzkHT9L9QUCoo3MOhNMGaiRtJi3KMSY"
             />
             <div class="team-overlay">
               <div class="flex space-x-2 space-x-reverse text-white">
@@ -377,7 +485,7 @@
             <img 
               alt="Team member photo" 
               class="w-full h-full rounded-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjKHA7C5BcOeH1bFus37zG9d5VV0tKwQ2rIWpqCFq_Viou5DhvtFiIoNQ9H7qUzes5HD2Nlpzr8sc7EeH1OxlpGR7MKtnXeZpebqMxqb3GzREH_Kw-YI4d1CCLJb-rdS7Ew4xeGl5loglTEQYAd96U6oE9UTCQJwAMES1HXoyd4dubsssiRbsYshFLp25RwncYYCmgMiSkH234BptIw8At0whiPQn_PvwrtvQPWeliQ_8DzCD9Tqdb3Kc4ORi_StePiYDH45x8G4w"
+              src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=400&h=400&facepad=2"
             />
             <div class="team-overlay">
               <div class="flex space-x-2 space-x-reverse text-white">
@@ -427,35 +535,497 @@
     </div>
   </div>
   
-  <div class="bg-background-dark py-20">
+  <div id="statsSection" class="bg-background-dark py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
+        <div id="stat1" class="opacity-0 transition-opacity duration-500">
           <span class="material-icons stats-icon">folder_open</span>
-          <p class="stats-number">۳۰۰+</p>
+          <p class="stats-number">۳۰+</p>
           <p class="stats-label">پروژه</p>
         </div>
-        <div>
+        <div id="stat2" class="opacity-0 transition-opacity duration-500">
           <span class="material-icons stats-icon">mood</span>
           <p class="stats-number">۸.۹</p>
           <p class="stats-label">رضایت</p>
         </div>
-        <div>
+        <div id="stat3" class="opacity-0 transition-opacity duration-500">
           <span class="material-icons stats-icon">person_outline</span>
-          <p class="stats-number">۳۰۰۰+</p>
+          <p class="stats-number">۲۰+</p>
           <p class="stats-label">مشتری</p>
         </div>
-        <div>
+        <div id="stat4" class="opacity-0 transition-opacity duration-500">
           <span class="material-icons stats-icon">groups</span>
-          <p class="stats-number">۲۳</p>
+          <p class="stats-number">۶</p>
           <p class="stats-label">اعضای تیم</p>
         </div>
       </div>
     </div>
   </div>
+
+  <button
+    id="backToTopBtn"
+    class="hidden fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-primary text-white text-xl shadow-lg hover:bg-blue-700 transition-all duration-300"
+  >
+    ↑
+  </button>
+
+  <script>
+    const btn = document.getElementById("backToTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) btn.classList.remove("hidden");
+      else btn.classList.add("hidden");
+    });
+
+    // Custom smooth scroll function with slower speed
+    function smoothScrollToTop(duration = 2000) {
+      const start = window.pageYOffset;
+      const startTime = performance.now();
+
+      function scrollStep(timestamp) {
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smoother animation (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        window.scrollTo(0, start * (1 - easeOut));
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(scrollStep);
+        }
+      }
+      window.requestAnimationFrame(scrollStep);
+    }
+
+    btn.addEventListener("click", () => {
+      smoothScrollToTop(2500); // 2.5 seconds to scroll to top
+    });
+  </script>
   
   <footer class="bg-card-dark py-4 text-center">
     <p class="text-text-secondary-dark text-sm">طراحی توسط <a href="https://arsalanparham.com" class="text-secondary hover:text-secondary/80" target="_blank">Arsalan</a></p>
   </footer>
-</body>
+
+  <script>
+    // Smooth scroll functionality for navigation links
+    $(document).ready(function() {
+      $('a[href*="#"]')
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+          // Check if link is on the same page
+          if (
+            location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') &&
+            location.hostname === this.hostname
+          ) {
+            // Get the target element
+            let target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            
+            // If target exists, animate scroll
+            if (target.length) {
+              event.preventDefault();
+              
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 1200, function() {
+                // Set focus to target for accessibility
+                let $target = $(target);
+                $target.focus();
+                if (!$target.is(":focus")) {
+                  $target.attr('tabindex', '-1');
+                  $target.focus();
+                }
+              });
+            }
+          }
+        });
+    });
+
+    // Mobile Menu Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      const closeBtn = document.getElementById('closeBtn');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        menuOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        menuOverlay.classList.remove('open');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+
+      // Open menu when hamburger is clicked
+      hamburgerBtn.addEventListener('click', openMenu);
+
+      // Close menu when close button is clicked
+      closeBtn.addEventListener('click', closeMenu);
+
+      // Close menu when overlay is clicked
+      menuOverlay.addEventListener('click', closeMenu);
+
+      // Close menu when mobile nav links are clicked
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Close menu with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('heroVideo');
+      const servicesSection = document.getElementById('servicesSection');
+      const projectsSection = document.getElementById('projectsSection');
+      let hasPlayedOnce = false;
+      let servicesAnimated = false;
+      let projectsAnimated = false;
+      
+      // Lazy load video function
+      function lazyLoadVideo(videoElement) {
+        const sources = videoElement.querySelectorAll('source[data-src]');
+        sources.forEach(source => {
+          source.src = source.dataset.src;
+          source.removeAttribute('data-src');
+        });
+        videoElement.load(); // Reload the video with new sources
+      }
+      
+      // Load video when it's about to be played
+      function setupVideoLazyLoading() {
+        const allVideos = document.querySelectorAll('video[preload="none"]');
+        
+        allVideos.forEach(video => {
+          // Load video on hover (for project videos)
+          video.addEventListener('mouseenter', function() {
+            if (this.querySelector('source[data-src]')) {
+              lazyLoadVideo(this);
+            }
+          });
+          
+          // Load video on click/play
+          video.addEventListener('play', function() {
+            if (this.querySelector('source[data-src]')) {
+              lazyLoadVideo(this);
+            }
+          });
+          
+          // Load video when it comes into viewport (for hero video)
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && entry.target.querySelector('source[data-src]')) {
+                lazyLoadVideo(entry.target);
+                observer.unobserve(entry.target); // Stop observing once loaded
+              }
+            });
+          }, { threshold: 0.5 });
+          
+          observer.observe(video);
+        });
+      }
+      
+      // Initialize lazy loading
+      setupVideoLazyLoading();
+      
+      // Function to play video only once
+      function playVideoOnce() {
+        if (!hasPlayedOnce) {
+          video.play().then(() => {
+            hasPlayedOnce = true;
+          }).catch(error => {
+            console.log('Autoplay failed:', error);
+          });
+        }
+      }
+      
+      // Play video on page load
+      playVideoOnce();
+      
+      // Function to animate services section with staggered delays
+      function animateServicesSection() {
+        if (!servicesAnimated) {
+          servicesAnimated = true;
+          
+          // Animate text first
+          setTimeout(() => {
+            document.getElementById('servicesText').style.opacity = '1';
+          }, 0);
+          
+          // Animate service cards with 500ms delays
+          const serviceIds = ['service1', 'service2', 'service3', 'service4'];
+          serviceIds.forEach((id, index) => {
+            setTimeout(() => {
+              document.getElementById(id).style.opacity = '1';
+            }, 900 + (index * 500)); // 500ms, 1000ms, 1500ms, 2000ms
+          });
+          
+        }
+      }
+      
+      // Function to animate projects section with staggered delays
+      function animateProjectsSection() {
+        if (!projectsAnimated) {
+          projectsAnimated = true;
+          
+          // Animate header first
+          setTimeout(() => {
+            document.getElementById('projectsHeader').style.opacity = '1';
+          }, 0);
+          
+          // Reveal carousel wrapper after header
+          setTimeout(() => {
+            const wrapper = document.getElementById('projectsCarouselWrapper');
+            if (wrapper) wrapper.style.opacity = '1';
+          }, 900);
+          
+        }
+      }
+
+      // Function to animate stats section: 4 items right-to-left with 500ms stagger
+      let statsAnimated = false;
+      function animateStatsSection() {
+        if (statsAnimated) return;
+        statsAnimated = true;
+        const ids = ['stat1', 'stat2', 'stat3', 'stat4'];
+        // Right-to-left for RTL: start from stat1 (rightmost) to stat4 (leftmost)
+        ids.forEach((id, index) => {
+          setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) el.style.opacity = '1';
+          }, index * 800);
+        });
+      }
+
+      // Function to animate team section: header in 700ms, then all cards 700ms later
+      let teamAnimated = false;
+      function animateTeamSection() {
+        if (teamAnimated) return;
+        teamAnimated = true;
+        const teamHeader = document.getElementById('teamHeader');
+        const teamCards = Array.from(document.querySelectorAll('#teamSection .team-card'));
+        if (teamHeader) {
+          setTimeout(() => { teamHeader.style.opacity = '1'; }, 700);
+        }
+        if (teamCards.length) {
+          setTimeout(() => {
+            teamCards.forEach(card => { card.style.opacity = '1'; });
+          }, 1400);
+        }
+      }
+
+      // Function to animate about section with 900ms transitions
+      function animateAboutSection() {
+        const aboutImage = document.getElementById('aboutImage');
+        const aboutText = document.getElementById('aboutText');
+        if (aboutImage) {
+          setTimeout(() => { aboutImage.style.opacity = '1'; }, 0);
+        }
+        if (aboutText) {
+          setTimeout(() => { aboutText.style.opacity = '1'; }, 900);
+        }
+      }
+      
+      // Intersection Observer for video
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasPlayedOnce) {
+            playVideoOnce();
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+      
+      // Intersection Observer for services section
+      const servicesObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateServicesSection();
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+      
+      // Intersection Observer for projects section
+      const projectsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateProjectsSection();
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      // Intersection Observer for stats section
+      const statsSection = document.getElementById('statsSection');
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateStatsSection();
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      // Intersection Observer for team section
+      const teamSection = document.getElementById('teamSection');
+      const teamObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateTeamSection();
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      // Intersection Observer for about section
+      const aboutSection = document.getElementById('aboutSection');
+      const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateAboutSection();
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+      
+      videoObserver.observe(video);
+      servicesObserver.observe(servicesSection);
+      projectsObserver.observe(projectsSection);
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+      if (teamSection) {
+        teamObserver.observe(teamSection);
+      }
+      if (aboutSection) {
+        aboutObserver.observe(aboutSection);
+      }
+    });
+
+    // Video Modal Functions
+    function openVideoModal(videoSrc, title, description = '') {
+      const modal = document.getElementById('videoModal');
+      const modalVideo = document.getElementById('modalVideo');
+      const modalTitle = document.getElementById('modalVideoTitle');
+      const modalDescription = document.getElementById('modalVideoDescription');
+      
+      // Set video source
+      modalVideo.src = videoSrc;
+      
+      // Set title and description
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      
+      // Show modal
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      // Play video
+      modalVideo.play();
+    }
+    
+    // Enhanced video modal function for lazy loading
+    function openVideoModalLazy(videoSrc, title, description = '') {
+      const modal = document.getElementById('videoModal');
+      const modalVideo = document.getElementById('modalVideo');
+      const modalTitle = document.getElementById('modalVideoTitle');
+      const modalDescription = document.getElementById('modalVideoDescription');
+      
+      // Show modal first
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      // Set title and description
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      
+      // Show loading state
+      modalVideo.innerHTML = '<div class="flex items-center justify-center h-64 text-white">در حال بارگذاری...</div>';
+      
+      // Load and play video
+      modalVideo.src = videoSrc;
+      modalVideo.load();
+      
+      modalVideo.addEventListener('canplaythrough', function() {
+        modalVideo.play();
+      }, { once: true });
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const modalVideo = document.getElementById('modalVideo');
+      
+      // Hide modal
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+      
+      // Pause and reset video
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+    }
+
+    // Close modal when clicking outside the video
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeVideoModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+      }
+    });
+  </script>
+  <!-- Video Modal -->
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl mx-auto">
+      <!-- Close Button -->
+      <button 
+        onclick="closeVideoModal()" 
+        class="absolute -top-12 right-0 text-white hover:text-primary transition-colors duration-300 z-10"
+      >
+        <span class="material-icons text-4xl">close</span>
+      </button>
+      
+      <!-- Video Container -->
+      <div class="relative bg-black rounded-lg overflow-hidden shadow-2xl">
+        <video 
+          id="modalVideo" 
+          class="w-full h-auto max-h-[80vh] object-contain" 
+          controls 
+          autoplay
+        >
+          Your browser does not support the video tag.
+        </video>
+        
+        <!-- Video Info -->
+        <div id="modalVideoInfo" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+          <h3 id="modalVideoTitle" class="text-xl font-bold text-white mb-2"></h3>
+          <p id="modalVideoDescription" class="text-sm text-gray-300"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
 </html>
