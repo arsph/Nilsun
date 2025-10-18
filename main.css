@@ -144,13 +144,6 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-/* Custom Components */
-.hero-bg {
-  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAC91S2o1-EMzJX9SYGVvAFezEHzcnuyNz9hOlTr9wjhmhjJ5oPxDFqIBNT7Q-kOYbLs5TcHAtBx5iPBkjHW8uxoxVWdU8c5hH7JMhNwZEy_mGtqyPPLgmDEb5_u-aoJmqMXWbVWY-RcRONvPRuawNbwGDTkdk7S_6BhnUsXa8nBlGNMTJZ4aQ4WKRsdf4ft8584xDjHpGfygyFrm8WiQkTlpXK4ejLaSF8c2WuD00NHsLKzU1NkXHIR43vT_wgMASfs7dZ1DNk7ZI');
-  background-size: cover;
-  background-position: center;
-}
-
 /* Large Background Letters */
 .bg-letter {
   font-size: 30rem;
