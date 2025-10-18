@@ -116,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const video = document.getElementById('heroVideo');
   const servicesSection = document.getElementById('servicesSection');
   const projectsSection = document.getElementById('projectsSection');
-  let hasPlayedOnce = false;
   let servicesAnimated = false;
   let projectsAnimated = false;
   
@@ -166,19 +165,26 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize lazy loading
   setupVideoLazyLoading();
   
-  // Function to play video only once
-  function playVideoOnce() {
-    if (!hasPlayedOnce) {
+  // Function to ensure video autoplay
+  function ensureVideoAutoplay() {
+    if (video.paused) {
       video.play().then(() => {
-        hasPlayedOnce = true;
+        console.log('Hero video autoplay started');
       }).catch(error => {
-        console.log('Autoplay failed:', error);
+        console.log('Autoplay failed, trying user interaction:', error);
+        // If autoplay fails, try to play on first user interaction
+        document.addEventListener('click', function playOnClick() {
+          video.play().then(() => {
+            console.log('Hero video started on user interaction');
+            document.removeEventListener('click', playOnClick);
+          });
+        }, { once: true });
       });
     }
   }
   
-  // Play video on page load
-  playVideoOnce();
+  // Ensure video autoplay on page load
+  ensureVideoAutoplay();
   
   // Function to animate services section with staggered delays
   function animateServicesSection() {
@@ -264,11 +270,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Intersection Observer for video
+  // Intersection Observer for video (backup autoplay trigger)
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !hasPlayedOnce) {
-        playVideoOnce();
+      if (entry.isIntersecting) {
+        ensureVideoAutoplay();
       }
     });
   }, {
