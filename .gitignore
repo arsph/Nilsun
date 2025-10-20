@@ -49,3 +49,6 @@ coverage/
 # Deployment providers
 .netlify/
 .vercel/
+
+# Project assets to ignore
+UI/
