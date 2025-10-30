@@ -1,0 +1,144 @@
+{
+  "title": "Nilsun Studio",
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Your vision, our artistic mission",
+    "title": "Why",
+    "titleHighlight": "Nilsun",
+    "titleEnd": "?",
+    "description": "Nilsun is a creative digital studio founded to craft unique and lasting visual experiences. Our team includes experts in graphic design, animation, content production, and digital marketing. Every project is an opportunity to innovate and create content that distinguishes your brand in the audience's mind.",
+    "description2": "At Nilsun, we tell your brand’s story with creativity and artistry so the audience not only hears it but also experiences it and connects with it. Our creative team analyzes your strengths and audience needs to craft personalized strategies that turn your brand into a distinctive and lasting experience."
+  },
+  "services": {
+    "title": "Our Services",
+    "description": "No two brands are the same. Our creative team analyzes your strengths and audience needs to craft tailored strategies, turning your brand into a distinctive and memorable experience.",
+    "viewAll": "View all",
+    "items": {
+      "web": {
+        "title": "Website Design",
+        "description": "A professional, memorable online presence with an optimized user experience"
+      },
+      "video": {
+        "title": "Advertising Teasers & Video",
+        "description": "Unforgettable visuals that convey your brand message with high creativity"
+      },
+      "animation": {
+        "title": "2D & 3D Animation",
+        "description": "Character design and professional storytelling for your brand"
+      },
+      "graphic": {
+        "title": "Graphic Design & Visual Identity",
+        "description": "Logo, color palette, catalog, and visual elements that set your brand apart"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "items": {
+      "fake": {
+        "title": "FAKE",
+        "description": "Full logo and brand identity design for a new brand with a modern, creative approach"
+      },
+      "nordform": {
+        "title": "NORDFORM",
+        "description": "Corporate website design and development with a modern UI and optimized UX"
+      },
+      "bank": {
+        "title": "BANK SADERAT",
+        "description": "2D animation production for an advertising campaign with creative storytelling"
+      },
+      "rezvani": {
+        "title": "REZVANI",
+        "description": "Professional advertising video with cinematic quality and advanced VFX"
+      },
+      "ekesf": {
+        "title": "EKESF",
+        "description": "Complete visual identity design including logo, business card, and catalog"
+      },
+      "ekesf2": {
+        "title": "EKESF-2",
+        "description": "Complete visual identity design including logo, business card, and catalog"
+      }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Nilsun Studio is a creative, boutique studio in digital marketing, design, and content production — where art and strategy work hand in hand to help brands shine.",
+    "founder": {
+      "title": "Founder",
+      "description": "I'm Niloofar Sanaye, the founder of Nilsun. Since my teenage years, I've been passionate about art and illustration — a passion that led me into the world of advertising and creativity. Nilsun is not just a studio to me; it's a dream built on a love for crafting lasting visual experiences. Here, I believe every brand can tell its story in the most beautiful way and find a place in the audience's heart."
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "roles": {
+      "marketing": "Digital Marketing Manager",
+      "webDesigner": "Web & App Designer",
+      "graphicDesigner": "Graphic Designer",
+      "videographer": "Videographer",
+      "photographer": "Photographer",
+      "modeler3d": "3D Modeler",
+      "animator": "Animator",
+      "editor": "Editor",
+      "ideation": "Ideation Specialist",
+      "copywriter": "Copywriter",
+      "screenwriter": "Screenwriter",
+      "narrator": "Narrator (Voice-over)",
+      "model": "Model & Actor"
+    }
+  },
+  "stats": {
+    "projects": "Projects",
+    "satisfaction": "Satisfaction",
+    "clients": "Clients",
+    "teamMembers": "Team Members"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're ready to turn your ideas into reality.",
+    "subtitle2": "Get in touch and benefit from our professional services.",
+    "form": {
+      "title": "Contact Form",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter your phone number",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Your message has been sent successfully. We will contact you soon.",
+      "error": "An error occurred while sending the message. Please try again.",
+      "connectionError": "Connection error. Please try again.",
+      "validation": {
+        "nameMin": "Name must be at least 2 characters",
+        "emailInvalid": "Please enter a valid email",
+        "messageMin": "Message must be at least 10 characters"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "messengers": "Messengers",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "location": "Our Location"
+    }
+  },
+  "footer": {
+    "designedBy": "Designed by"
+  },
+  "video": {
+    "loading": "Loading..."
+  }
+}
