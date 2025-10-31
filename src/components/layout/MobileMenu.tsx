@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -11,26 +11,17 @@ interface MobileMenuProps {
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage, isRTL }) => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'fa' ? 'en' : 'fa';
+    const switchingToEn = i18n.language === 'fa';
+    const newLang = switchingToEn ? 'en' : 'fa';
     i18n.changeLanguage(newLang);
-    
-    // Update URL based on language
-    const currentPath = window.location.pathname;
-    if (newLang === 'en') {
-      if (currentPath === '/') {
-        window.history.pushState(null, '', '/en');
-      } else if (currentPath === '/contact') {
-        window.history.pushState(null, '', '/en/contact');
-      }
-    } else {
-      if (currentPath === '/en') {
-        window.history.pushState(null, '', '/');
-      } else if (currentPath === '/en/contact') {
-        window.history.pushState(null, '', '/contact');
-      }
-    }
+    const path = window.location.pathname;
+    const newPath = switchingToEn
+      ? (path.startsWith('/en') ? path : `/en${path === '/' ? '' : path}`)
+      : (path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path);
+    navigate(newPath, { replace: true });
   };
 
   React.useEffect(() => {
@@ -121,7 +112,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage,
             >
               <img 
                 className="w-6 h-6" 
-                src={isRTL ? "https://hatscripts.github.io/circle-flags/flags/gb.svg" : "https://hatscripts.github.io/circle-flags/flags/ir.svg"}
+                src={isRTL ? "/flags/gb.svg" : "/flags/ir.svg"}
                 alt={isRTL ? "UK Flag" : "IR Flag"}
               />
               <span>{isRTL ? 'English' : 'فارسی'}</span>

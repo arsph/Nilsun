@@ -40,30 +40,38 @@
   },
   "projects": {
     "title": "Projects",
+    "tabs": {
+      "all": "All",
+      "logo": "Logo Design",
+      "animation": "Animation",
+      "video": "Video",
+      "graphic": "Graphic Design"
+    },
     "items": {
       "fake": {
         "title": "FAKE",
-        "description": "Full logo and brand identity design for a new brand with a modern, creative approach"
+        "description": "Full logo and brand identity design for a new brand with a modern, creative approach",
+        "category": "video"
       },
       "nordform": {
         "title": "NORDFORM",
-        "description": "Corporate website design and development with a modern UI and optimized UX"
-      },
-      "bank": {
-        "title": "BANK SADERAT",
-        "description": "2D animation production for an advertising campaign with creative storytelling"
+        "description": "Corporate website design and development with a modern UI and optimized UX",
+        "category": "video"
       },
       "rezvani": {
         "title": "REZVANI",
-        "description": "Professional advertising video with cinematic quality and advanced VFX"
+        "description": "Professional advertising video with cinematic quality and advanced VFX",
+        "category": "video"
       },
       "ekesf": {
         "title": "EKESF",
-        "description": "Complete visual identity design including logo, business card, and catalog"
+        "description": "Complete visual identity design including logo, business card, and catalog",
+        "category": "video"
       },
       "ekesf2": {
         "title": "EKESF-2",
-        "description": "Complete visual identity design including logo, business card, and catalog"
+        "description": "Complete visual identity design including logo, business card, and catalog",
+        "category": "video"
       }
     }
   },

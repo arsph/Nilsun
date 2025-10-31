@@ -50,7 +50,7 @@ const HeroSection: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
           <motion.div 
-            className={isRTL ? 'order-first md:order-last' : ''}
+            className={isRTL ? 'order-first md:order-last' : 'md:order-last'}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
           </motion.div>
           
           <motion.div 
-            className="relative"
+            className={isRTL ? 'relative' : 'relative md:order-first'}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03, rotate: -1 }}
