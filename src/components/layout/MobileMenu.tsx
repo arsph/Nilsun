@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
+import { navigateAndScroll } from '../../utils/scrollUtils';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -22,6 +23,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage,
       ? (path.startsWith('/en') ? path : `/en${path === '/' ? '' : path}`)
       : (path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path);
     navigate(newPath, { replace: true });
+  };
+
+  const handleSectionClick = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onClose();
+    navigateAndScroll(navigate, sectionId, isEnglishPage, 1200);
   };
 
   React.useEffect(() => {
@@ -69,8 +76,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage,
           <li>
             <a 
               href={`${isEnglishPage ? '/en' : ''}#servicesSection`}
-              className="text-text-secondary-dark"
-              onClick={onClose}
+              className="text-text-secondary-dark cursor-pointer"
+              onClick={(e) => handleSectionClick('servicesSection', e)}
             >
               {t('nav.services')}
             </a>
@@ -78,8 +85,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage,
           <li>
             <a 
               href={`${isEnglishPage ? '/en' : ''}#projectsSection`}
-              className="text-text-secondary-dark"
-              onClick={onClose}
+              className="text-text-secondary-dark cursor-pointer"
+              onClick={(e) => handleSectionClick('projectsSection', e)}
             >
               {t('nav.projects')}
             </a>
@@ -87,8 +94,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage,
           <li>
             <a 
               href={`${isEnglishPage ? '/en' : ''}#aboutSection`}
-              className="text-text-secondary-dark"
-              onClick={onClose}
+              className="text-text-secondary-dark cursor-pointer"
+              onClick={(e) => handleSectionClick('aboutSection', e)}
             >
               {t('nav.about')}
             </a>

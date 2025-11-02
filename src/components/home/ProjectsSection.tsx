@@ -66,7 +66,7 @@ const ProjectsSection: React.FC = () => {
               onClick={() => setActiveTab(tab)}
               className={`
                 px-6 py-3 rounded-lg font-semibold text-sm md:text-base
-                transition-all duration-300 relative overflow-hidden
+                transition-all duration-300 relative overflow-hidden cursor-pointer
                 ${activeTab === tab
                   ? 'text-white shadow-lg shadow-primary/50'
                   : 'bg-background-dark text-text-secondary-dark hover:text-white hover:bg-background-dark/80'

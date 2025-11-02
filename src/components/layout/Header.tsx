@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MobileMenu from './MobileMenu';
+import { navigateAndScroll } from '../../utils/scrollUtils';
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -19,6 +20,11 @@ const Header: React.FC = () => {
       ? (path.startsWith('/en') ? path : `/en${path === '/' ? '' : path}`)
       : (path.startsWith('/en') ? path.replace(/^\/en/, '') || '/' : path);
     navigate(newPath, { replace: true });
+  };
+
+  const handleSectionClick = (sectionId: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navigateAndScroll(navigate, sectionId, isEnglishPage, 1200);
   };
 
   const isRTL = i18n.language === 'fa';
@@ -48,19 +54,22 @@ const Header: React.FC = () => {
           </Link>
           <a 
             href={`${isEnglishPage ? '/en' : ''}#servicesSection`}
-            className="text-text-secondary-dark hover:text-white transition"
+            onClick={(e) => handleSectionClick('servicesSection', e)}
+            className="text-text-secondary-dark hover:text-white transition cursor-pointer"
           >
             {t('nav.services')}
           </a>
           <a 
             href={`${isEnglishPage ? '/en' : ''}#projectsSection`}
-            className="text-text-secondary-dark hover:text-white transition"
+            onClick={(e) => handleSectionClick('projectsSection', e)}
+            className="text-text-secondary-dark hover:text-white transition cursor-pointer"
           >
             {t('nav.projects')}
           </a>
           <a 
             href={`${isEnglishPage ? '/en' : ''}#aboutSection`}
-            className="text-text-secondary-dark hover:text-white transition"
+            onClick={(e) => handleSectionClick('aboutSection', e)}
+            className="text-text-secondary-dark hover:text-white transition cursor-pointer"
           >
             {t('nav.about')}
           </a>
