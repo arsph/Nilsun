@@ -9,7 +9,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 bg-background-dark opacity-95 z-10"></div>
+      <div className="absolute inset-0 bg-background-dark opacity-95 z-0"></div>
       <div className="absolute inset-0"></div>
       
       {/* Header in container */}
@@ -18,12 +18,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
       
       {/* Main content - full width */}
-      <main className="relative z-20">
+      <main className="relative z-10">
         {children}
       </main>
       
       {/* Footer - full width */}
-      <div className="relative z-10">
+      <div className="relative">
         <Footer />
       </div>
     </div>

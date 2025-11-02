@@ -69,7 +69,7 @@ const ProjectDetail: React.FC = () => {
             
             {!isPlaying && (
               <div 
-                className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"
                 onClick={handlePlay}
               >
                 <span className="material-icons play-button text-6xl">

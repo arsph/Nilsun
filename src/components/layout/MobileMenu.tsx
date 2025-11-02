@@ -108,7 +108,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, isEnglishPage,
                 toggleLanguage();
                 onClose();
               }}
-              className={`text-text-secondary-dark flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}
+              className={`text-text-secondary-dark flex items-center space-x-2 cursor-pointer`}
             >
               <img 
                 className="w-6 h-6" 

@@ -113,7 +113,7 @@ const ProjectsSection: React.FC = () => {
                         alt={projectTitle}
                         className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300" 
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                     </div>
                     <div className="p-4">
                       <h3 className="text-xl font-bold text-white">

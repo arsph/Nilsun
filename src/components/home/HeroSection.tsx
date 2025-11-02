@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div 
-            className={isRTL ? 'order-last md:order-first' : ''}
+            className={isRTL ? 'order-first' : ''}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative">
+            <div className="relative z-0">
               <div className="absolute -inset-2 blur-xl rounded-lg"></div>
               <video 
                 className="relative rounded-lg shadow-xl w-full h-full object-cover" 
@@ -70,7 +70,7 @@ const HeroSection: React.FC = () => {
             <div className="absolute -inset-2 blur-xl rounded-lg"></div>
             <img 
             alt="Hero image 2" 
-            className="rounded-lg shadow-2xl max-w-lg object-cover transition-transform duration-500 ease-out hover:scale-105 hover:-translate-y-1 hover:-rotate-1 hover:animate-pulse"
+            className="rounded-lg shadow-2xl mx-auto object-cover transition-transform duration-500 ease-out hover:scale-105 hover:-translate-y-1 hover:-rotate-1 hover:animate-pulse"
             src="/img/hero-2.jpg"/>
           </motion.div>
           
